@@ -1,0 +1,15 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: prenom-hello-world-ingress
+  namespace: prenom-dev
+spec:
+  rules:
+  - host: "prenom.dev.com"
+    http:
+      paths:
+      - path: "/"
+        backend:
+          serviceName: "prenom-hello-world-service"
+          servicePort: 8080

@@ -1,0 +1,16 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: prenom-hello-world-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: "prenom.formation"
+    http:
+      paths:
+      - path: "/"
+        backend:
+          serviceName: "prenom-hello-world-service"
+          servicePort: 8080

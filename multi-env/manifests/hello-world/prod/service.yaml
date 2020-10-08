@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prenom-hello-world-service
+  namespace: prenom-prod
+  labels:
+    app: prenom-hello-world-service
+  annotations:
+    cloud.google.com/load-balancer-type: "Internal"
+spec:
+  type: LoadBalancer
+  ports:
+  - name: hello-world
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: prenom-hello-world

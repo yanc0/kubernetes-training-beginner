@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prenom-hello-world
+  labels:
+    app: prenom-hello-world
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: prenom-hello-world
+  template:
+    metadata:
+      labels:
+        app: prenom-hello-world
+    spec:
+      containers:
+      - image: eu.gcr.io/formation-auchan/hello:noversion
+        name: helloworld

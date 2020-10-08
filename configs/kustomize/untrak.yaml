@@ -1,0 +1,13 @@
+in:
+- cmd: "kustomize"
+  args: ["build", "hello-world/overlays/dev"]
+- cmd: "kustomize"
+  args: ["build", "hello-world/overlays/prod"]
+
+out:
+- cmd: "kubectl"
+  args: ["-n", "prenom-dev", "get", "deploy,svc,ing,hpa", "-o", "yaml"]
+- cmd: "kubectl"
+  args: ["-n", "prenom-prod", "get", "deploy,svc,ing,hpa", "-o", "yaml"]
+exclude:
+- namespace
